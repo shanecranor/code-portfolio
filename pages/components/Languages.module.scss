@@ -1,0 +1,15 @@
+.section {
+	//background:red;
+	span{
+		//background:blue;
+		display: inline-block;
+		padding: 5px;
+		outline: solid black 1px;
+		//background: blue;
+
+		img{
+			display: inline-block;
+			height: 15px;
+		}
+	}
+}
