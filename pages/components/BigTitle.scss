@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-
+    overflow: hidden;
     > .big-title {
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
@@ -15,16 +15,18 @@
         color: rgb(255,0,0);    
         // letter-spacing: 8px;
         mix-blend-mode: screen;
-        transition: 0.1s;
+        transition: transform 0.5s, letter-spacing 0.5s;
+        transform-origin: var(--title-origin-x) var(--title-origin-y);
         &:before {
             content: attr(data-text);
             display: inline-block;
             transform-origin: var(--title-origin-x) var(--title-origin-y);
             transform: translateX(103.7%);
             color: rgb(0,255,0);
-            transition: 0.1s;
+            transition: transform 0.5s, letter-spacing 0.5s;
             mix-blend-mode: screen;
             transform-style: preserve-3D;
+            letter-spacing: normal;
         }
         &:after {
             content: attr(data-text);
@@ -32,24 +34,33 @@
             transform-origin: var(--title-origin-x) var(--title-origin-y);
             transform: translateX(-100%) translateY(0);
             color: rgb(0,0,255);
-            transition: transform 0.1s;
+            transition: transform 0.5s, letter-spacing 0.5s;
             mix-blend-mode: screen;
             transform-style: preserve-3D;
-        }
+            letter-spacing: normal;
+        }   
         
           &:hover:before {
-            transform: translateX(103.7%) rotateY(5deg) rotateX(-10deg);
+            transform: translateX(103.7%) rotateY(5deg) rotateX(-10deg) rotateZ(0.1deg);
           }
           
           &:hover:after {
-           transform: translateX(-100%) rotateY(10deg) rotateX(-20deg);
+           transform: translateX(-100%) rotateY(10deg) rotateX(-20deg) rotateZ(-0.1deg);
           } 
           &:active:before{
-            transition: 0.5s;
+            transition: transform 0.5s, letter-spacing 0.5s;
             transform: translateX(103.7%) rotateY(-10deg) rotateX(20deg);
+            letter-spacing: 15px;
           }
           &:active:after {
-            transform: translateX(-100%) rotateY(-20deg) rotateX(30deg);
+            transition: transform 0.5s, letter-spacing 0.5s;
+            transform: translateX(-100%) rotateY(-15deg) rotateX(25deg);
+            letter-spacing: 15px;
+          } 
+          &:active{
+            transition: transform 0.5s, letter-spacing 0.5s;
+            transform: rotateY(-10deg) rotateX(20deg);
+            letter-spacing: 15px;
           } 
     }
 }
