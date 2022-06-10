@@ -7,21 +7,25 @@ export const languages = [
 	},
 	{
 		language: 'TypeScript',
+		img: 'languageIcons/TypeScript.svg',
 		categories: ['Web Stack'],
 		fluency: 90
 	},
 	{	
 		language: 'NodeJS',
+		img: 'languageIcons/NodeJS.svg',
 		categories: ['Web Stack'],
 		fluency: 75
 	},
 	{
 		language: 'NextJS',
+		img: 'languageIcons/NextJS.svg',
 		categories: ['Web Stack'],
 		fluency: 70
 	},
 	{
 		language: 'React (JSX or Hyperscript)',
+		img: 'languageIcons/React.svg',
 		categories: ['Web Stack'],
 		fluency: 70
 	},
@@ -128,7 +132,7 @@ export const languages = [
 
 let languageCategories = new Set()
 let allCategory = []
-languageCategories.add('All Languages & Libraries')
+languageCategories.add('All')
 for (const lang of languages){
 	allCategory.push(lang)
   for (const cat of lang.categories){
@@ -139,6 +143,6 @@ for (const lang of languages){
 export const categories = Array.from(languageCategories)
 
 export function getLangsByCategory(category: string){
-	if (category === 'All Languages & Libraries') return allCategory 
+	if (category === 'All') return allCategory 
 	return languages.filter(language => (language.categories.includes(category)))
 }
