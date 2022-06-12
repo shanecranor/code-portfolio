@@ -4,8 +4,9 @@ import Navbar from './components/Navbar';
 import './components/Navbar.scss' 
 import BigTitle from './components/BigTitle';
 import './components/BigTitle.scss'
-import Languages  from './components/Languages';
-import './components/Languages.scss' 
+import LanguagesAndProjects  from './components/LanguagesAndProjects';
+import './components/LanguagesAndProjects.scss' 
+import './components/Project.scss'
  
 export default function App(){
     return (
@@ -16,7 +17,7 @@ export default function App(){
           </Head>
           <Navbar/>
             <BigTitle text="Code Portfolio"/>
-          <Languages/>
+          <LanguagesAndProjects/>
         </div>
       )
 }

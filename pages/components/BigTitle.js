@@ -13,7 +13,7 @@ export default function BigTitle({text}){
         "--title-origin-y": (coords.y) +"px",
         "--title-rot-x": (coords.y) +"deg"
     }
-    console.log(style)
+    //console.log(style)
     return(
     <div className='big-title-container' style={style} >
         <div onMouseMove={handleMouseMove} className='big-title' data-text={text}> {text}</div>
