@@ -3,7 +3,7 @@
     z-index: 10;
     content: attr(data-text);
 	//display: block;
-    transform-origin: var(--title-origin-x) var(--title-origin-y);
+    transform-origin: var(--title-origin-x) 50%;
     transition: transform 0.5s, letter-spacing 0.5s, text-shadow 0.5s;
     transform-style: preserve-3D;
     letter-spacing: normal;
@@ -14,15 +14,12 @@
 	@include pseudostuff;
 	display: flex;
     color: rgb(255,0,0);
-    text-shadow: 0px 0px 20px rgba(red, 0.2);
     &:before {
 		@include pseudostuff;
-        text-shadow: 0px 0px 20px rgba(0,255,0, 0.2);
         color: rgb(0,255,0);
 		position: absolute;
     }
     &:after {
-        text-shadow: 0px 0px 20px rgba(blue, 0.2);
         color: rgb(0,0,255);
         //transform: translateY(-200%);
         @include pseudostuff;
@@ -30,14 +27,19 @@
 	}   
 	&:hover{
 		--hover-letter-spacing: 0px;
+		--text-glow-alpha: 0.3;
+		--text-glow-radius: 5px;
+		text-shadow: 0px 0px var(--text-glow-radius) rgba(red, var(--text-glow-alpha));
 		letter-spacing: var(--hover-letter-spacing);
 		&:before {
+			text-shadow: 0px 0px var(--text-glow-radius) rgba(0,255,0, var(--text-glow-alpha));
 			letter-spacing: var(--hover-letter-spacing);
-            transform: rotateY(5deg) rotateX(-5deg) rotateZ(0.1deg);
+            transform: rotateY(-5deg) rotateX(20deg) rotateZ(0.1deg);
         }
         &:after {
+			text-shadow: 0px 0px var(--text-glow-radius) rgba(blue, var(--text-glow-alpha));
 			letter-spacing: var(--hover-letter-spacing);
-            transform: rotateY(10deg) rotateX(-10deg) rotateZ(-0.1deg);
+            transform: rotateY(10deg) rotateX(-20deg) rotateZ(-0.1deg);
         } 
 	}
 }
@@ -113,10 +115,22 @@
 		outline-offset: -2px;
 		border-radius: 40px;
 		margin: 5px;
+		@keyframes example {
+			0%   {box-shadow: 	inset 0 0 0px 10px rgba(red, 0.4),
+								inset 0 10px 0px 0px rgba(blue, 0.4);}
+			25%  {box-shadow: 	inset 0 0 0px 15px rgba(red, 0.4),
+				  			  	inset 0 10px 0px 15px rgba(blue, 0.4);}
+			50%  {box-shadow: 	inset 0 0 0px 15px rgba(red, 0.4),
+							  	inset 0 0 0px 15px rgba(green, 0.4);}
+			100% {box-shadow:	inset 0 0 0px 15px rgba(red, 0.4),
+								inset 0 0 0px 15px rgba(green, 0.4);;}
+		}
 		&:hover{
 			outline-offset: -3px;
 			outline-color: rgba(white, 1);
-			box-shadow: inset 0 0 10px 0px rgba(white, 0.5);
+			
+
+			animation: 10s infinite example;
 		}
 		> .project-title-container{
 			display: flex;
