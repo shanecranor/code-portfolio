@@ -8,14 +8,19 @@ export default function LanguagesAndProjects(){
 	return(
 	<div className='main'>
 	<section className='language-section'>
-			<h1>Programming Languages & Libraries</h1>
+			{/* <h1>Programming Languages & Libraries</h1> */}
 			<div className='category-buttons'>
 			{categories.map(c => (<button className={selected === c ? "selected" : "not-selected"}onClick={() => setSelected(c)}>{c}</button>)) }
 			</div>
 			<div className='category-container'>
 			{/* <div className='category-name'> {c}: </div> */}
 			{getLangsByCategory(selected).map(
-				langObj => (<span className='language'><img src={langObj.img}></img>{langObj.language}</span>))}
+				langObj => (
+				<span className='language'>
+					<img src={langObj.img}/>
+					{langObj.language}
+				</span>
+				))}
 			</div>
 
 	</section>
