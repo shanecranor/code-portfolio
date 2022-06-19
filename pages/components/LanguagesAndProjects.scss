@@ -56,21 +56,86 @@
 			cursor: pointer;
 			padding: 7px;
 			margin: 3px;
-			font-size: 15px;
-			border-color: white;
-			border-width: 1px;
+			font-size: 20px;
+			border: 1px white solid;
+			outline: 0px white solid;
 			color: white;
-			outline: 0px rgba(255,255,255,0.5) solid;
 			background: transparent;
 			font-weight: 200;
 			//line-height: 30px;
-			transition: outline .3s , outline-offset .3s, color .3s ease-in-out;
-			&:hover {
-				outline: 30px rgba(255,255,255,0.1) solid;
-				outline-offset: -30px;
+			transition: outline .2s, outline-offset .2s, text-shadow .3s, background 0.3s steps(1,jump-end), border .3s, padding .3s, box-shadow 0.3s, color 0.3s ease-in-out;
+			$alpha: 1.0;
+			box-shadow: 
+			inset 0px  0px 0px 0px 	rgba(yellow, $alpha),
+			inset 0px  0px 0px 0px 	rgba(red, $alpha),
+			inset 0px 0px 0px 0px 	rgba(cyan, $alpha),
+			inset 0px 0px 0px 0px 	rgba(blue, $alpha),
+			 0px  0px 0.0px 0px 	rgba(yellow, $alpha),
+			 0px  0px 0px 0px 		rgba(red, $alpha),
+			 0px 0px 0.0px 0px 		rgba(cyan, $alpha),
+			 0px 0px 0px 0px 		rgba(blue, $alpha),
+			 inset 0px 38px 0px 0px black,
+			 inset 0px 0px 0px 0px white,
+			 inset 0px -38px 0px 0px black;
+			 
+			border-right-width: 2px;
+			border-left-width: 2px;
+			$alpha2: 0.5;
+			text-shadow: 
+				0px 0px 0px rgba(yellow, $alpha2),
+				0px 0px 0px rgba(red, $alpha2),
+				0px 0px 0px rgba(cyan, $alpha2),
+				0px 0px 0px rgba(blue, $alpha2);
+			background: none;
+			 &:hover{
+				$alpha: 1.0;
+				// border: none;
+				// color: black;
+				box-shadow: 
+							inset 1px  0px 0px 0px 	rgba(yellow, $alpha),
+							inset 2px  0px 0px 0px 	rgba(red, $alpha),
+							inset -1px 0px 0px 0px 	rgba(cyan, $alpha),
+							inset -2px 0px 0px 0px 	rgba(blue, $alpha),
+							 1px  0px 0.0px 0px 	rgba(yellow, $alpha),
+							 2px  0px 0px 0px 		rgba(red, $alpha),
+							 -1px 0px 0.0px 0px 	rgba(cyan, $alpha),
+							 -2px 0px 0px 0px 		rgba(blue, $alpha),
+							 inset 0px 38px 0px 0px black,
+							 inset 0px 0px 0px 0px white,
+							 inset 0px -38px 0px 0px black;
+				
+				text-shadow: 
+				 0px 1px 0.5px rgba(yellow, $alpha2),
+				 0px 2px 0.5px rgba(red, $alpha2),
+				-0px -1px 0.5px rgba(cyan, $alpha2),
+				-0px -2px 0.5px rgba(blue, $alpha2);	
 			}
 			&.selected{
-				border-width: 2px;
+				//border-width: 2px;
+				background: white;
+				color: black;
+				@-moz-document url-prefix() {
+					outline: 3px solid white;
+					outline-offset: -3px;
+				}
+				box-shadow: 
+							inset 0px  0px 0px 0px 	rgba(yellow, $alpha),
+							inset 0px  0px 0px 0px 	rgba(red, $alpha),
+							inset 0px 0px 0px 0px 	rgba(cyan, $alpha),
+							inset 0px 0px 0px 0px 	rgba(blue, $alpha),
+							 2px  0px 0.0px 0px 	rgba(yellow, $alpha),
+							 4px  0px 0px 0px 		rgba(red, $alpha),
+							 -2px 0px 0.0px 0px 	rgba(cyan, $alpha),
+							 -4px 0px 0px 0px 		rgba(blue, $alpha),
+							inset 0px 0px 0px 0px black,
+							inset 0px 38px 0px 0px	white,
+							inset 0px -38px 0px 0px black;
+				text-shadow: 
+					 0px 0px 0px rgba(yellow, $alpha2),
+					 0px 0px 0px rgba(red, $alpha2),
+					 0px 0px 0px rgba(cyan, $alpha2),
+					 0px 0px 0px rgba(blue, $alpha2);			
+				
 			}
 			// line-height: 1.15; /* 1 */
 			// margin: 0; /* 2 */
@@ -111,26 +176,22 @@
 		padding: 5px;
 		border: solid white 2px;
 		outline: solid 2px white;
-		transition: outline-offset .5s, outline-color .5s, box-shadow .5s;
+		transition: outline-offset .5s, outline-color .5s, box-shadow 0.5s;
 		outline-offset: -2px;
 		border-radius: 40px;
 		margin: 5px;
-		@keyframes example {
-			0%   {box-shadow: 	inset 0 0 0px 10px rgba(red, 0.4),
-								inset 0 10px 0px 0px rgba(blue, 0.4);}
-			25%  {box-shadow: 	inset 0 0 0px 15px rgba(red, 0.4),
-				  			  	inset 0 10px 0px 15px rgba(blue, 0.4);}
-			50%  {box-shadow: 	inset 0 0 0px 15px rgba(red, 0.4),
-							  	inset 0 0 0px 15px rgba(green, 0.4);}
-			100% {box-shadow:	inset 0 0 0px 15px rgba(red, 0.4),
-								inset 0 0 0px 15px rgba(green, 0.4);;}
-		}
+		--shadow-alpha: 0.5;
+		--shadow-size: 20px;
+		--shadow-size-n: -20px;
+		--shadow-zero: 0px;
+		--shadow-blur: 0px;
+		--shadow-inner: 0px;
+		box-shadow: none;
+		background: black;
+
 		&:hover{
 			outline-offset: -3px;
 			outline-color: rgba(white, 1);
-			
-
-			animation: 10s infinite example;
 		}
 		> .project-title-container{
 			display: flex;
