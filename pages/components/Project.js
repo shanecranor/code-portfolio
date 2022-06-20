@@ -8,14 +8,16 @@ export default function Project({eventName, year, title, summary, img, languages
 		// while (target.className != 'project-container'){
 		// 	target = target.parentElement
 		// }
+		let rect = target.getBoundingClientRect()
         setCoords({
-          x: event.clientX - target.offsetLeft,
-          y: 0,
+          x: (event.clientX - rect.left-(target.offsetWidth/2))/target.offsetWidth,
+          y: (event.clientY - rect.top-(target.offsetHeight/2))/target.offsetHeight,
         });
       };
     const style = { 
-        "--title-origin-x": (coords.x) +"px",
-        "--title-origin-y": (coords.y) +"px"
+        "--t-x-1": (coords.x*-10) +"px",
+        "--t-y-1": (coords.y*-10) +"px",
+		"--t-b": (coords.y*coords.y+coords.x*coords.x)*10 +"px"
     }
 	return(
 	<div className='project-container'> 

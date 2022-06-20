@@ -1,14 +1,19 @@
 @use 'sass:math';
 @mixin pseudostuff{
+	padding: 0px;
+	margin: 0px;
     z-index: 10;
     content: attr(data-text);
-	//display: block;
+	//display: inline-block;
     transform-origin: var(--title-origin-x) 50%;
     transition: transform 0.5s, letter-spacing 0.5s, text-shadow 0.5s;
-    transform-style: preserve-3D;
+   	transform-style: preserve-3D;
     letter-spacing: normal;
     mix-blend-mode: screen;
 	text-align: center;
+	//width: 100%;
+	align-items: center;
+  	justify-content: center;
 }
 @mixin RGBeffect{
 	@include pseudostuff;
@@ -43,6 +48,24 @@
         } 
 	}
 }
+
+@mixin fakeRGBoff{
+	$alpha2: 0.5;
+	text-shadow: 
+	0px 0px 0px rgba(yellow, $alpha2),
+	0px 0px 0px rgba(red, $alpha2),
+	0px 0px 0px rgba(cyan, $alpha2),
+	0px 0px 0px rgba(blue, $alpha2);	
+}
+@mixin fakeRGBon($x1, $y1, $blur){
+	$alpha2: 0.4;
+	text-shadow: 
+	calc($x1*0.5) 	calc($y1*0.5) 	$blur rgba(yellow, $alpha2),
+	$x1	   			$y1    	      	$blur rgba(red, $alpha2),
+	calc($x1*-0.5)  calc($y1*-0.5) 	$blur rgba(cyan, $alpha2),
+	calc($x1*-1)    calc($y1*-1) 	$blur rgba(blue, $alpha2);		
+}
+
 .language-section {
 	> h1 {
 		font-size: min(4vw, 45px);
@@ -80,12 +103,7 @@
 			 
 			border-right-width: 2px;
 			border-left-width: 2px;
-			$alpha2: 0.5;
-			text-shadow: 
-				0px 0px 0px rgba(yellow, $alpha2),
-				0px 0px 0px rgba(red, $alpha2),
-				0px 0px 0px rgba(cyan, $alpha2),
-				0px 0px 0px rgba(blue, $alpha2);
+			@include fakeRGBoff();
 			background: none;
 			 &:hover{
 				$alpha: 1.0;
@@ -104,11 +122,7 @@
 							 inset 0px 0px 0px 0px white,
 							 inset 0px -38px 0px 0px black;
 				
-				text-shadow: 
-				 0px 1px 0.5px rgba(yellow, $alpha2),
-				 0px 2px 0.5px rgba(red, $alpha2),
-				-0px -1px 0.5px rgba(cyan, $alpha2),
-				-0px -2px 0.5px rgba(blue, $alpha2);	
+				@include fakeRGBon(0px, 2px,0.5px);
 			}
 			&.selected{
 				//border-width: 2px;
@@ -130,12 +144,7 @@
 							inset 0px 0px 0px 0px black,
 							inset 0px 38px 0px 0px	white,
 							inset 0px -38px 0px 0px black;
-				text-shadow: 
-					 0px 0px 0px rgba(yellow, $alpha2),
-					 0px 0px 0px rgba(red, $alpha2),
-					 0px 0px 0px rgba(cyan, $alpha2),
-					 0px 0px 0px rgba(blue, $alpha2);			
-				
+				@include fakeRGBoff;		
 			}
 			// line-height: 1.15; /* 1 */
 			// margin: 0; /* 2 */
@@ -151,7 +160,6 @@
 		//background:blue;
 		display: inline-block;
 		padding: 5px;
-		outline: solid black 1px;
 		//background: blue;
 
 		img{
@@ -175,38 +183,43 @@
 	.project-container {
 		padding: 5px;
 		border: solid white 2px;
-		outline: solid 2px white;
+		//outline: solid 2px white;
 		transition: outline-offset .5s, outline-color .5s, box-shadow 0.5s;
 		outline-offset: -2px;
 		border-radius: 40px;
 		margin: 5px;
-		--shadow-alpha: 0.5;
-		--shadow-size: 20px;
-		--shadow-size-n: -20px;
-		--shadow-zero: 0px;
-		--shadow-blur: 0px;
-		--shadow-inner: 0px;
 		box-shadow: none;
 		background: black;
-
+		box-shadow: 0px 0px 15px 0px rgba(white, 0.25),
+				inset 0px 0px 20px 0px rgba(white, 0.3);
 		&:hover{
 			outline-offset: -3px;
-			outline-color: rgba(white, 1);
+			//outline-color: rgba(white, 1);
+			
 		}
 		> .project-title-container{
+			border-bottom: 2px solid white;
+			border-radius: 4%;
+			box-shadow: 0px 10px 10px -10px rgba(white, 0.5),
+				  inset 0px -10px 10px -10px rgba(white, 0.3);
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding: 10px;
+			padding: 5px 10px 5px 10px;
+			
 			> .project-title {
-				
+				text-align: center;
 				font-weight: 500;
 				line-height: 1.4;
 				padding: 0px;
 				margin: 0px;
-				@include RGBeffect;
-				
-
+				@include fakeRGBoff();
+				transition: text-shadow 1s;
+				--t-x-1: 1px;
+				&:hover{
+					transition: text-shadow 0s;
+					@include fakeRGBon(var(--t-x-1), var(--t-y-1), var(--t-b));
+				}
 			}
 		}
 		> .project-contents {

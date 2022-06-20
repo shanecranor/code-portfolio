@@ -1,9 +1,73 @@
 export const projects = [
 {
+	eventName: 'HASS327, Music Technology',
+	year: 2022,
+	title: 'JS Math Synthesizer',
+	// img: '',
+	tags: ['Web Stack'],
+	languages: ['JavaScript', 'HTML', 'CSS'],
+	summary: 'Have you ever wanted to manipulate synthesized sound with math? Create the music of your dreams by controlling volume and pitch with functions that you can easily write yourself.',
+	description: ``
+},
+{
+	eventName: 'MEGN540, Mechatronics',
+	year: 2022,
+	title: 'Building A Rotary Subwoofer',
+	// img: '',
+	tags: ['Hardware'],
+	languages: ['Embedded C / Arduino C'],
+	summary: 'I built a high performance ultra low frequency speaker system. The project involved designing and manufacturing a PCB with a Sallen-Key low-pass filter, implementing a closed loop feedback system to control fan speed, and shaking my entire house.',
+	description: `In this project, we designed a rotary subwoofer to bypass
+	the physical constraints of traditional subwoofer design in
+	attempt to produce high amplitude infrasonic frequencies. We
+	constructed and tested a functioning prototype and found that
+	even at low RPM, the rotary subwoofer had superior infrasonic
+	performance to a traditional subwoofer at full volume. While
+	there are some minor drawbacks to the fan subwoofer design,
+	like a higher noise floor, the fan subwoofer has proven to be
+	an effective and low cost method of reproducing ultra low
+	frequencies.`
+},
+{
+	eventName: 'CSCI437, Computer Vision',
+	year: 2021,
+	title: 'ChArUco Draw',
+	// img: '',
+	tags: ['Machine Learning', 'Graphics'],
+	languages: ['Python'],
+	summary: 'Using ORB feature detection, ChArUco boards, and OpenCV in Python to create an augmented reality drawing system that can create, store, and view 3D drawings.',
+	description: `ChArUco Draw is a drawing program that allows the user to draw anywhere in 3D space.
+	Using a special marker, the user can draw by moving the marker throughout the room. We
+	use Checkerboard/ArUco(Charuco) markers on the walls, ceiling, and floor of a room, to
+	create the canvas, which estimates the position of the marker in a room. The marker is a
+	ChArUco code or an object of the user's choice.`
+},
+{
+	eventName: 'CSCI250, Sensor Systems',
+	year: 2021,
+	title: 'Raspberry Pi Door Camera',
+	// img: '',
+	tags: ['Web Stack', 'Hardware'],
+	languages: ['JavaScript', 'HTML', 'CSS', 'Python'],
+	summary: '',
+	description: ``
+},
+{
+	eventName: 'Datava',
+	year: 2021,
+	title: 'End to End Testing With Cypress',
+	// img: '',
+	tags: ['Web Stack'],
+	languages: ['JavaScript'],
+	summary: 'Led a team that implemented end to end testing on Datava’s cloud based interface using Javascript, Cypress, and ExtJS.',
+	description: ``
+},
+{
 	eventName: 'HackUMBC',
 	year: 2020,
 	title: 'bubblz.space',
 	img: 'https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/285/069/datas/gallery.jpg',
+	tags: ['Web Stack'],
 	languages: ['Javascript','NodeJS', 'HTML','CSS'],
 	awards: [
 		{ 
@@ -37,6 +101,7 @@ export const projects = [
 	year: 2020,
 	title: 'Procedural Interactive Pixel Art Kaleidoscope',
 	// img: 'https://shane.cranor.org/code/imgs/ClueGame.png',
+	tags: ['Graphics', 'Web Stack' ],
 	languages: ['JavaScript','PixiJS'],
 	summary: 'Using Javascript and some arbitrary math to make some cool looking pixel art!',
 	description: `I made this in my spare time over the summer of 2020 while hiding from the rona with my family. The image is generated from a strange modified iterative XOR function. Each coordinate is passed through 3 instances of the XOR function, one for the hue, saturation, and lightness. Based on the current FPS, the program dynamically changes the number of pixels rendered. The Kaleidoscope effect looks cool, but also serves to increase the framerate by reducing the number of calls to the XOR function as my iterative XOR function is not particularly efficient.`
