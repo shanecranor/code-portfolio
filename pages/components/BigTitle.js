@@ -15,8 +15,8 @@ export default function BigTitle({text}){
     }
     //console.log(style)
     return(
-    <div className='big-title-container' style={style} >
+    <header className='big-title-container' style={style} >
         <div onMouseMove={handleMouseMove} className='big-title' data-text={text}> {text}</div>
-    </div>
+    </header>
     )
 }

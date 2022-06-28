@@ -20,20 +20,23 @@ export default function Project({eventName, year, title, summary, img, languages
 		"--t-b": (coords.y*coords.y+coords.x*coords.x)*10 +"px"
     }
 	return(
-	<div className='project-container'> 
-		<div className='project-title-container'>
+	<article className='project-container'> 
+		<header className='project-title-container'>
 			<h2 className='project-title'  style={style} onMouseMove={handleMouseMove} data-text={title}>{title}</h2> 
-		</div>
+		</header>
 		<div className='project-contents'>
-			<div className='project-tags'>
+			<section className='project-tags'>
 				Tags:
 				{languages.map(lang => (
-					<span className='tag'>{lang}</span>
+					<span key={`${lang}tag`} className='tag'>
+						{lang}
+					</span>
 				))}
-			</div>
-			{/* {img ? <img src={img}/> : <></>} */}
-			<p className='project-summary'>{summary}</p>
+			</section>
+			<section className='project-summary'>
+				<p>{summary}</p>
+			</section>
 		</div>
-	</div>
+	</article>
 	)
 }

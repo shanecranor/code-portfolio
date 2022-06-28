@@ -7,10 +7,10 @@ const navbarLinks = {
 }
 export default function Navbar(){
     return (
-    <div className="navbar-container"> 
+    <nav className="navbar-container"> 
         {Object.entries(navbarLinks).map( ([text, url]) => (
         <Link href={url}><a className="nav-link">{text}</a></Link>
         ))}
-    </div>
+    </nav>
     )
 }

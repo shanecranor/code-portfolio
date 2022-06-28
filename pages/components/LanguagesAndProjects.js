@@ -6,7 +6,7 @@ export default function LanguagesAndProjects(){
 	const [selected, setSelected] = useState('All')
 	const selectedProjects = getProjectsByLanguages(getLangsByCategory(selected).map(l=>l.language))
 	return(
-	<div className='main'>
+	<section className='all-projects'>
 	<section className='language-section'>
 			{/* <h1>Programming Languages & Libraries</h1> */}
 			<div className='category-buttons'>
@@ -22,13 +22,12 @@ export default function LanguagesAndProjects(){
 				</span>
 				))}
 			</div>
-
 	</section>
-	<section className='project-section'>
+	<section className='selected-projects'>
 		{selectedProjects.map((props) => (
 				<Project {...props}/>
 		))}	
 	</section>
-	</div>
+	</section>
 	)
 }

@@ -7,17 +7,26 @@ import './components/BigTitle.scss'
 import LanguagesAndProjects  from './components/LanguagesAndProjects';
 import './components/LanguagesAndProjects.scss' 
 import './components/Project.scss'
- 
+import About from './components/About';
+import './components/About.scss';
+import FeaturedProjects from './components/FeaturedProjects';
+import './components/FeaturedProjects.scss'
 export default function App(){
-    return (
-        <div className="app-container">
-          <Head>
-            <title>Code Portfolio</title>
+    return (<>
+        <Head>
+            <title>Interactive Code Portfolio</title>
             <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <Navbar/>
+        </Head>
+
+        <header>
+            <Navbar/>
+        </header>
+        
+        <main>
             <BigTitle text="Code Portfolio"/>
-          <LanguagesAndProjects/>
-        </div>
-      )
+            <About/>
+            <FeaturedProjects/>
+            <LanguagesAndProjects/>
+        </main>
+    </>)
 }
