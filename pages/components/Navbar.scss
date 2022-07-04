@@ -1,26 +1,4 @@
-@use 'sass:math';
-@use 'sass:list';
-@mixin noCrazyShadow($num, $end-x, $end-y){
-    $shadows: 0px 0px 0px white;
-    @for $i from 1 through $num {
-        $x-pos: calc($i/$num*$end-x);
-        $y-pos: calc($i/$num*$end-y);
-        $shadows: #{$shadows}, 0px 0px #{calc(($i/$num)*15)}px rgba(black, calc((1 - math.pow($i/$num, 0.5))/2));
-    }
-    text-shadow: $shadows;
-}
-@mixin crazyShadow($num, $end-x, $end-y){
-    $shadows: 0px 0px 0px white;
-    @for $i from 1 through $num {
-        $x-pos: calc(math.pow($i/$num*$end-x,2));
-        $y-pos: calc(math.pow($i/$num*$end-y,2));
-        $shadows: #{$shadows}, 
-        #{$x-pos}px  #{$y-pos}px  #{calc(($i/$num)*14)}px 
-        rgba(list.nth(cyan yellow magenta (0, 255, 0), $i % 3 + 1), 
-        calc((1 - math.pow($i/$num, 0.9))/1));
-    }
-    text-shadow: $shadows;
-}
+@import './style_modules/crazyShadow.scss';
 .navbar-container{
     line-height: 1.0;
     padding-top: 10px;
@@ -37,9 +15,9 @@
         text-decoration: none;
         color: white;
         transition: text-shadow 1s;
-        @include noCrazyShadow(10, 20, 20);
+        @include noCrazyShadow(10, 0, 0);
         &:hover{
-            @include crazyShadow(10, 7, 5)
+            @include crazyRainbowShadow(10, 7, 5)
         }
     }
 }

@@ -65,7 +65,11 @@
 	calc($x1*-0.5)  calc($y1*-0.5) 	$blur rgba(cyan, $alpha2),
 	calc($x1*-1)    calc($y1*-1) 	$blur rgba(blue, $alpha2);		
 }
-
+.all-projects{
+	width: 100%;
+    margin: 0 auto;
+    max-width: 1600px;
+}
 .language-section {
 	> h1 {
 		font-size: min(4vw, 45px);
@@ -172,13 +176,13 @@
   
 .selected-projects {
 	display: grid;
-	@media screen and (max-width: 1200px){
+	@media screen and (max-width: 1500px){
 		grid-template-columns: 1fr 1fr 1fr;}
-	@media screen and (max-width: 1000px){
+	@media screen and (max-width: 1150px){
 		grid-template-columns: 1fr 1fr;}
 	@media screen and (max-width: 600px){
 		grid-template-columns: 1fr;}
-	@media screen and (min-width: 1200px){
+	@media screen and (min-width: 1500px){
 		grid-template-columns: 1fr 1fr 1fr 1fr;}
 	.project-container {
 		padding: 5px;

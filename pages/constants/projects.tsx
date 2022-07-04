@@ -2,12 +2,21 @@ export const projects = [
 {
 	eventName: 'HASS327, Music Technology',
 	year: 2022,
-	title: 'JS Math Synthesizer',
+	title: 'Math Synth Experiment',
 	// img: '',
 	tags: ['Web Stack'],
 	languages: ['JavaScript', 'HTML', 'CSS'],
 	summary: 'Have you ever wanted to manipulate synthesized sound with math? Create the music of your dreams by controlling volume and pitch with functions that you can easily write yourself.',
-	description: ``
+	description: ``,
+	links: [
+		{
+			link: '...',
+			description: 'Learn More'
+		},
+		{
+			link: 'https://shane.cranor.org/synth/',
+			description: 'Try it out!'
+		}],
 },
 {
 	eventName: 'MEGN540, Mechatronics',
@@ -16,7 +25,7 @@ export const projects = [
 	// img: '',
 	tags: ['Hardware'],
 	languages: ['Embedded C / Arduino C'],
-	summary: 'I built a high performance ultra low frequency speaker system. The project involved designing and manufacturing a PCB with a Sallen-Key low-pass filter, implementing a closed loop feedback system to control fan speed, and shaking my entire house.',
+	summary: 'I built an ultra low frequency speaker system. The project involved milling a custom PCB with a Sallen-Key low-pass filter, implementing a PID controller to maintain fan speed, and shaking my entire house.',
 	description: `In this project, we designed a rotary subwoofer to bypass
 	the physical constraints of traditional subwoofer design in
 	attempt to produce high amplitude infrasonic frequencies. We
@@ -26,7 +35,7 @@ export const projects = [
 	there are some minor drawbacks to the fan subwoofer design,
 	like a higher noise floor, the fan subwoofer has proven to be
 	an effective and low cost method of reproducing ultra low
-	frequencies.`
+	frequencies.`,
 },
 {
 	eventName: 'CSCI437, Computer Vision',
