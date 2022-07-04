@@ -1,6 +1,4 @@
-import { languages, categories, getLangsByCategory } from '../constants/languages.tsx';
-import { projects, getProjectsByLanguages } from '../constants/projects.tsx';
-import { useState } from 'react';
+import { useState } from 'react'
 export default function Project({eventName, year, title, summary, img, languages}){ 
 	const [coords, setCoords] = useState({x: 0, y: 0});
     const handleMouseMove = event => {

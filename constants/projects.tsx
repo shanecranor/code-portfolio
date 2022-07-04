@@ -16,7 +16,7 @@ export const projects = [
 		{
 			link: 'https://shane.cranor.org/synth/',
 			description: 'Try it out!'
-		}],
+		}]
 },
 {
 	eventName: 'MEGN540, Mechatronics',
@@ -36,6 +36,15 @@ export const projects = [
 	like a higher noise floor, the fan subwoofer has proven to be
 	an effective and low cost method of reproducing ultra low
 	frequencies.`,
+	links: [
+		{
+			link: '...',
+			description: 'Learn More'
+		},
+		{
+			link: 'https://shane.cranor.org/synth/',
+			description: 'Try it out!'
+		}]
 },
 {
 	eventName: 'CSCI437, Computer Vision',

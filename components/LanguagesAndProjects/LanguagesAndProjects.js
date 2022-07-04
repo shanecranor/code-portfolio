@@ -1,7 +1,7 @@
-import { languages, categories, getLangsByCategory } from '../constants/languages.tsx';
-import { projects, getProjectsByLanguages } from '../constants/projects.tsx';
-import React, { useState } from "react";
-import Project from '../components/Project.js'
+import { categories, getLangsByCategory } from '../../constants/languages.tsx'
+import { getProjectsByLanguages } from '../../constants/projects.tsx'
+import React, { useState } from "react"
+import Project from '../Project/Project.js'
 export default function LanguagesAndProjects(){ 
 	const [selected, setSelected] = useState('All')
 	const selectedProjects = getProjectsByLanguages(getLangsByCategory(selected).map(l=>l.language))
