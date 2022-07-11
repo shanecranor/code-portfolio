@@ -5,13 +5,13 @@ import LanguagesAndProjects  from '../components/LanguagesAndProjects/LanguagesA
 import About from '../components/About/About';
 import Section from '../components/Section/Section';
 import FeaturedProject from '../components/FeaturedProject/FeaturedProject';
+import Link from 'next/dist/client/link';
 export default function Home(){
     return(<>
             <Head>
                 <title>Interactive Code Portfolio</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <header>
                 <Navbar/>
             </header>
@@ -20,10 +20,12 @@ export default function Home(){
                 <BigTitle text="Code Portfolio"/>
                 {/* <About/> */}
                 <Section header="Featured Projects" startOpen={true}>
+                <Link href="./posts/spotify"><a style={{all: "unset"}}>
                     <FeaturedProject 
                         title="Truffle Spotify App"
                         description="Overlay that displays cached Spotify data from a Cloudlare worker"
-                    />
+                    /></a>
+                </Link>
                     <FeaturedProject 
                         title="Math Synth Experiment"
                         description="Create a wall of sound by writing equations"
