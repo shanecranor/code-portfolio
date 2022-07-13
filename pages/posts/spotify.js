@@ -22,12 +22,12 @@ export default function Spotify(){
             <h2>Find out what song your streamer is jamming to</h2></header>
             <section className='text-section'>
                 <header><h2>Design & Concept</h2></header>
-                <p>The idea behind this project was to create an interface for viewers using the truffle.tv browser extension to quickly and easily view information about the song that a streamer is listening to on stream. To acomplish this, I built the interface in React and utilized the Spotify API through Cloudflare workers to cache data. <br/><br/> Features include 
+                <p>The idea behind this project was to create an interface for viewers using the truffle.tv browser extension to quickly and easily view information about the song that a streamer is listening to on stream. To acomplish this, I built a widget in React which pulls data from a Cloudflare worker. The worker caches Spotify API requests and deals with OAuth tokens.<br/><br/> The final product can
                 <ul>
-                    <li>Updating in real time with a progress bar</li> 
-                    <li>Keeping the streamer's Spotify account details private</li>
-                    <li>The ability to minimize the overlay and keep useful information</li>
-                    <li>To link and display album art, song name, and artist</li>
+                    <li>Update in real time with a progress bar and time indicator</li> 
+                    <li>Keep the streamer's Spotify account details private</li>
+                    <li>Be minimized while still displaying useful information</li>
+                    <li>Show album art, song name, and artists as well as links to their Spotify pages</li>
                 </ul>
                 </p>
             </section>
