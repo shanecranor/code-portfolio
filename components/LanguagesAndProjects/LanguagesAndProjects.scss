@@ -196,10 +196,10 @@
 		background: black;
 		box-shadow: 0px 0px 15px 0px rgba(white, 0.25),
 				inset 0px 0px 20px 0px rgba(white, 0.3);
+		overflow: hidden;
 		&:hover{
 			outline-offset: -3px;
 			//outline-color: rgba(white, 1);
-			
 		}
 		> .project-title-container{
 			border-bottom: 2px solid white;
@@ -212,6 +212,7 @@
 			padding: 5px 10px 5px 10px;
 			
 			> .project-title {
+				background: blue;
 				text-align: center;
 				font-weight: 500;
 				line-height: 1.4;
@@ -246,10 +247,28 @@
 				font-weight: 200;
 				white-space: pre-wrap;
 			}
-			> img{
-				display: inline-block;
+		}
+		>.links{
+			display: none;
+			transition: margin 1s linear, top 1s linear;
+		}
+		&:hover{
+			>.links{
+				// position: relative;
+				visibility: visible;
+				top: -500px; 
+				margin-bottom: -500px;
+				// background: none;
 				width: 100%;
+				height: 100%;
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				background: rgba(0,255,0, 0.5);
 			}
 		}
+
 	}
 }

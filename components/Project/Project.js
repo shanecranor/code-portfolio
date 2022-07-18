@@ -1,5 +1,5 @@
 import { useState } from 'react'
-export default function Project({eventName, year, title, summary, img, languages}){ 
+export default function Project({eventName, year, title, summary, img, languages, links}){ 
 	const [coords, setCoords] = useState({x: 0, y: 0});
     const handleMouseMove = event => {
 		let target = event.target
@@ -19,6 +19,9 @@ export default function Project({eventName, year, title, summary, img, languages
     }
 	return(
 	<article className='project-container'> 
+		<div className='links'>
+				{links ? links.map(link => (<div>{link.description}</div>)) : ""}
+		</div>
 		<header className='project-title-container'>
 			<h2 className='project-title'  style={style} onMouseMove={handleMouseMove} data-text={title}>{title}</h2> 
 		</header>
@@ -35,6 +38,7 @@ export default function Project({eventName, year, title, summary, img, languages
 				<p>{summary}</p>
 			</section>
 		</div>
+
 	</article>
 	)
 }
