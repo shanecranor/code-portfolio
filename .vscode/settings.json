@@ -1,9 +1,9 @@
 {
     "workbench.colorTheme": "Default Dark+",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "html.autoClosingTags": true,
     "javascript.autoClosingTags": true,
     "typescript.autoClosingTags": true,
     "editor.linkedEditing": true,
-    "html.mirrorCursorOnMatchingTag" : true
+    "html.mirrorCursorOnMatchingTag": true
 }

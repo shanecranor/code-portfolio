@@ -7,6 +7,7 @@ import '../components/LanguagesAndProjects/LanguagesAndProjects.scss'
 import '../components/Project/Project.scss'
 import '../components/About/About.scss';
 import '../components/Section/Section.scss'
+import '../components/ModalWindow/ModalWindow.scss'
 import '../components/FeaturedProject/FeaturedProject.scss'
 import './posts/posts.scss'
 import Home from './index'
