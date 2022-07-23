@@ -3,6 +3,7 @@ import { getProjectsByLanguages, projects } from '../../constants/projects.tsx'
 import React, { useState } from "react"
 import ModalWindow from '../ModalWindow/ModalWindow'
 import Project from '../Project/Project.js'
+import Router, { useRouter } from "next/router";
 export default function LanguagesAndProjects() {
 	const [selected, setSelected] = useState('All')
 	const selectedProjects = getProjectsByLanguages(getLangsByCategory(selected).map(l => l.language))

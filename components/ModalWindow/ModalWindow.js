@@ -3,10 +3,13 @@ import { getProjectsByLanguages } from '../../constants/projects.tsx'
 import React, { useState } from "react"
 export default function ModalWindow({ selectedProject, setProject }) {
 
-	const { eventName, year, title, summary, description, img, languages, links } = selectedProject;
+	const { eventName, year, title, summary, description, img, languages, links, index } = selectedProject;
 	return (
-		<article className='modal-window'>
-			<div className='prev-project' onClick={() => setProject(old => old - 1)}>
+		<article className='modal-window'
+			onClick={(e) => {
+				if (e.target.className == 'modal-window') setProject(null)
+			}}>
+			<div className='prev-project' onClick={() => setProject(index - 1)}>
 				<div className='left-arrow' />
 			</div>
 			<div className='container'>
@@ -29,7 +32,7 @@ export default function ModalWindow({ selectedProject, setProject }) {
 				</div>
 
 			</div>
-			<div className='next-project' onClick={() => setProject(old => old + 1)} >
+			<div className='next-project' onClick={() => setProject(index + 1)} >
 				<div className='right-arrow' />
 			</div>
 		</article>
