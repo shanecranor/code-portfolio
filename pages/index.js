@@ -24,7 +24,7 @@ export default function Home() {
                 selectedProject={{ ...projects[project], index: parseInt(project) }}
                 setProject={(next) => {
                     Router.push(
-                        { query: { project: next } },
+                        { query: { ...query, project: next } },
                         undefined,
                         { shallow: true }
                     )
@@ -54,7 +54,7 @@ export default function Home() {
                         description="A peer to peer video communication web app with a twist"
                     />
                 </Section>
-                <Section header="All Projects">
+                <Section header="All Projects" startOpen={true}>
                     <LanguagesAndProjects />
                 </Section>
             </main>

@@ -115,6 +115,10 @@
 }
 
 .modal-blur {
-    transition: filter 1s ease;
+    transition: filter 0.1s linear;
     filter: blur(20px);
+}
+
+.page {
+    transition: filter 0.1s linear;
 }

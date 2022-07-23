@@ -2,7 +2,6 @@ import { categories, getLangsByCategory } from '../../constants/languages.tsx'
 import { getProjectsByLanguages } from '../../constants/projects.tsx'
 import React, { useState } from "react"
 export default function ModalWindow({ selectedProject, setProject }) {
-
 	const { eventName, year, title, summary, description, img, languages, links, index } = selectedProject;
 	return (
 		<article className='modal-window'

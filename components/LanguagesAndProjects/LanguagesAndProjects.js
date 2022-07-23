@@ -5,7 +5,15 @@ import ModalWindow from '../ModalWindow/ModalWindow'
 import Project from '../Project/Project.js'
 import Router, { useRouter } from "next/router";
 export default function LanguagesAndProjects() {
-	const [selected, setSelected] = useState('All')
+	const { query } = useRouter();
+	const [selected, setSelected] = [
+		query.category || 'All',
+		(category) => (Router.push(
+			{ query: { ...query, category: category } },
+			undefined,
+			{ shallow: true }
+		))
+	]
 	const selectedProjects = getProjectsByLanguages(getLangsByCategory(selected).map(l => l.language))
 	return (
 		<section className='all-projects'>
@@ -26,8 +34,12 @@ export default function LanguagesAndProjects() {
 				</div>
 			</section>
 			<section className='selected-projects'>
-				{selectedProjects.map((props) => (
-					<Project {...props} />
+				{selectedProjects.map((props, index) => (
+					<Project data={props} onClick={() => Router.push(
+						{ query: { ...query, project: index } },
+						undefined,
+						{ shallow: true }
+					)} />
 				))}
 			</section>
 		</section>
