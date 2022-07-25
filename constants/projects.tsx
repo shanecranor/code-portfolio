@@ -26,16 +26,7 @@ export const projects = [
 		tags: ['Hardware'],
 		languages: ['Embedded C / Arduino C'],
 		summary: 'I built an ultra low frequency speaker system. The project involved milling a custom PCB with a Sallen-Key low-pass filter, implementing a PID controller to maintain fan speed, and shaking my entire house.',
-		description: `In this project, we designed a rotary subwoofer to bypass
-	the physical constraints of traditional subwoofer design in
-	attempt to produce high amplitude infrasonic frequencies. We
-	constructed and tested a functioning prototype and found that
-	even at low RPM, the rotary subwoofer had superior infrasonic
-	performance to a traditional subwoofer at full volume. While
-	there are some minor drawbacks to the fan subwoofer design,
-	like a higher noise floor, the fan subwoofer has proven to be
-	an effective and low cost method of reproducing ultra low
-	frequencies.`,
+		description: `In this project, we designed a rotary subwoofer to bypass	the physical constraints of traditional subwoofer design in attempt to produce high amplitude infrasonic frequencies. We	constructed and tested a functioning prototype and found that even at low RPM, the rotary subwoofer had superior infrasonic	performance to a traditional subwoofer at full volume. While there are some minor drawbacks to the fan subwoofer design, like a higher noise floor, the fan subwoofer has proven to be an effective and low cost method of reproducing ultra low frequencies.`,
 		links: [
 			{
 				link: '...',
@@ -54,11 +45,7 @@ export const projects = [
 		tags: ['Machine Learning', 'Graphics'],
 		languages: ['Python'],
 		summary: 'Using ORB feature detection, ChArUco boards, and OpenCV in Python to create an augmented reality drawing system that can create, store, and view 3D drawings.',
-		description: `ChArUco Draw is a drawing program that allows the user to draw anywhere in 3D space.
-	Using a special marker, the user can draw by moving the marker throughout the room. We
-	use Checkerboard/ArUco(Charuco) markers on the walls, ceiling, and floor of a room, to
-	create the canvas, which estimates the position of the marker in a room. The marker is a
-	ChArUco code or an object of the user's choice.`
+		description: `ChArUco Draw is a drawing program that allows the user to draw anywhere in 3D space. Using a special marker, the user can draw by moving the marker throughout the room. We use Checkerboard/ArUco(Charuco) markers on the walls, ceiling, and floor of a room, to create the canvas, which estimates the position of the marker in a room. The marker is a ChArUco code or an object of the user's choice.`
 	},
 	{
 		eventName: 'CSCI250, Sensor Systems',

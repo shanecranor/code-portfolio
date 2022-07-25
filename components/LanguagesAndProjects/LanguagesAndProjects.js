@@ -1,7 +1,6 @@
 import { categories, getLangsByCategory } from '../../constants/languages.tsx'
 import { getProjectsByLanguages, projects } from '../../constants/projects.tsx'
-import React, { useState } from "react"
-import ModalWindow from '../ModalWindow/ModalWindow'
+import React from "react"
 import Project from '../Project/Project.js'
 import Router, { useRouter } from "next/router";
 export default function LanguagesAndProjects() {

@@ -1,16 +1,21 @@
 import { categories, getLangsByCategory } from '../../constants/languages.tsx'
 import { getProjectsByLanguages } from '../../constants/projects.tsx'
 import React, { useState } from "react"
-export default function ModalWindow({ selectedProject, setProject }) {
+import { projects } from '../../constants/projects';
+export default function ModalWindow({ selectedProject, setProject, maxProject }) {
 	const { eventName, year, title, summary, description, img, languages, links, index } = selectedProject;
+	console.log(maxProject)
 	return (
 		<article className='modal-window'
 			onClick={(e) => {
 				if (e.target.className == 'modal-window') setProject(null)
 			}}>
-			<div className='prev-project' onClick={() => setProject(index - 1)}>
-				<div className='left-arrow' />
-			</div>
+			{
+				(index > 0) &&
+				<div className='prev-project' onClick={() => setProject(index - 1)}>
+					<div className='left-arrow' />
+				</div>
+			}
 			<div className='container'>
 
 
@@ -31,9 +36,13 @@ export default function ModalWindow({ selectedProject, setProject }) {
 				</div>
 
 			</div>
-			<div className='next-project' onClick={() => setProject(index + 1)} >
-				<div className='right-arrow' />
-			</div>
+			{
+
+				(index < maxProject - 1) &&
+				<div className='next-project' onClick={() => setProject(index + 1)} >
+					<div className='right-arrow' />
+				</div>
+			}
 		</article>
 	)
 }

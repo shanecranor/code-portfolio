@@ -8,20 +8,24 @@ import Section from '../components/Section/Section';
 import FeaturedProject from '../components/FeaturedProject/FeaturedProject';
 import Link from 'next/dist/client/link';
 import ModalWindow from '../components/ModalWindow/ModalWindow';
-import { projects } from '../constants/projects'
+import { projects, getProjectsByLanguages } from '../constants/projects'
+import { categories, getLangsByCategory } from '../constants/languages.tsx'
 import { useState } from 'react';
 import Router, { useRouter } from "next/router";
 export default function Home() {
     const { query } = useRouter();
     const project = query.project;
+    const category = query.category || "All";
+    const selectedProjects = getProjectsByLanguages(getLangsByCategory(category).map(l => l.language))
+    const projectProps = selectedProjects[project]
     return (<>
         <Head>
             <title>Interactive Code Portfolio</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        {project &&
+        {(project && projectProps) &&
             (<ModalWindow
-                selectedProject={{ ...projects[project], index: parseInt(project) }}
+                selectedProject={{ ...projectProps, index: parseInt(project) }}
                 setProject={(next) => {
                     Router.push(
                         { query: { ...query, project: next } },
@@ -29,6 +33,7 @@ export default function Home() {
                         { shallow: true }
                     )
                 }}
+                maxProject={selectedProjects.length}
             />
             )}
         <div className={'page ' + (project && 'modal-blur')}>
