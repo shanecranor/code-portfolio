@@ -1,4 +1,16 @@
-export const projects = [
+interface Project{
+	eventName: string,
+	year: number,
+	title: string,
+	tags: string[],
+	img?: string,
+	awards?: {award: string, organization: string}[]
+	languages: string[],
+	summary: string,
+	description: string,
+	links?: {link: string, description: string}[],
+}
+export const projects: Project[] = [
 	{
 		eventName: 'HASS327, Music Technology',
 		year: 2022,
@@ -7,7 +19,11 @@ export const projects = [
 		tags: ['Web Stack'],
 		languages: ['JavaScript', 'HTML', 'CSS'],
 		summary: 'Have you ever wanted to manipulate synthesized sound with math? Create the music of your dreams by controlling volume and pitch with functions that you can easily write yourself.',
-		description: ``,
+		description: `I created this synth for my Music Technology class. The requirements for the synth stated that it needed to play multiple notes and have multiple waveforms. I had always wanted to be able to modify synth properties with equations similar to how you can control any parameter with any output in a traditional rack mount modular synth so I figured out the web audio API and built it myself.
+		
+		To implement equations, instead of writing my own function parser I take advantage of some of the quirks in vanilla javascript. When the user types a function into a text box my code calls the 'new Function' constructor in javascript to create a function that is called to determine the value for the parameter. A side effect of the user actually writing javascript functions is that they can use any global variable that is specified in the code. I use this to my advantage by making the current note that is being pressed a global variable 'note' to make an oscillator that is an octave higher you can simply change 'note' to 'note*2'. 
+		
+		Feel free to check it out or read more about the inner workings and perfomance by using the links below! `,
 		links: [
 			{
 				link: '...',
@@ -30,11 +46,11 @@ export const projects = [
 		links: [
 			{
 				link: '...',
-				description: 'Learn More'
+				description: 'See it in action'
 			},
 			{
 				link: 'https://shane.cranor.org/synth/',
-				description: 'Try it out!'
+				description: 'Learn More'
 			}]
 	},
 	{
@@ -54,8 +70,8 @@ export const projects = [
 		// img: '',
 		tags: ['Web Stack', 'Hardware'],
 		languages: ['JavaScript', 'HTML', 'CSS', 'Python'],
-		summary: '',
-		description: ``
+		summary: 'A doorbell camera clone created with a Rapberry Pi',
+		description: `The doorbell camera was built in a team of 4 and includes a temperature and humidity sensor as well as a camera making it function as a mini weather station and door bell.`
 	},
 	{
 		eventName: 'Datava',
@@ -65,7 +81,7 @@ export const projects = [
 		tags: ['Web Stack'],
 		languages: ['JavaScript'],
 		summary: 'Led a team that implemented end to end testing on Datava’s cloud based interface using Javascript, Cypress, and ExtJS.',
-		description: ``
+		description: `Over the summer of 2021 I led a team working to build Cypress tests for Datava's web based enteprise management system. Our project was less successful than expected because their interface did not have static classes or IDs. We eventually determined that we needed to add 'data-cy' tags to all the interface elements to make testing anything viable.`
 	},
 	{
 		eventName: 'HackUMBC',
@@ -97,6 +113,7 @@ export const projects = [
 		year: 2020,
 		title: 'Campus Themed Clue Game',
 		img: 'https://shane.cranor.org/code/imgs/ClueGame.png',
+		tags: ['Application'],
 		languages: ['Java'],
 		summary: 'Recreating the Clue board game in Java',
 		description: `An accurate reconstruction of the board game Clue with a new campus themed map, bad sound effects, fun music, and pictures. Play against smart AI computer players. The game was written in a team of two using OOP principles and test driven development in Java. The final product is over 4000 lines of code. `
@@ -125,6 +142,7 @@ export const projects = [
 				description: 'Presentation (Google Slides)'
 			}],
 		img: 'https://shane.cranor.org/code/imgs/scifi.jpg',
+		tags: ['Machine Learning'],
 		languages: ['Python'],
 		awards: [
 			{
@@ -137,12 +155,15 @@ export const projects = [
 			}
 		],
 		summary: 'Detecting cars and empty parking spaces using machine learning and a Raspberry Pi.',
-		description: `This project was born out of the struggle of finding a parking spot at the airport (pre pandemic). I wondered if there was a simple solution to driving by endless rows full of parked cars. My first thought was to have a fleet of drones that fly above the lot every half hour or so and direct users to empty spots with laser pointers, or through a cellphone app. After thinking about it for a while I decided to ditch the moving parts and just mount the camera to light posts that are often found in parking lots as an easy way to get high elevation without needing to deal with drones. A Raspberry Pi was used as the camera to collect images and I used Tensorflow to identify parked cars. Market research on existing solutions revealed that most solutions cost over $100 per parking space. My solution is over 100 times cheaper for 50 or more parking spaces and has minimal installation costs. I took my project to the Regional Pennsylvania Junior Academy of Science, got first award, and then went on to win first award at the state wide competition as well. I also presented at PRSEF, the Pittsburgh Regional Science & Engineering Fair, and won a sponsor award. I really enjoyed teaching myself how to set up tensorflow for use in a real world scenario as well as learning how to set up and use a Raspberry Pi.`
+		description: `This project was born out of the struggle of finding a parking spot at the airport (pre pandemic). I wondered if there was a simple solution to driving through endless rows full of parked cars. My first thought was to have a fleet of drones that fly above the lot every half hour or so and direct users to empty spots with laser pointers, or through a cellphone app. After thinking about it for a while I decided to ditch the moving parts and just mount the camera to light posts that are often found in parking lots as an easy way to get high elevation without needing to deal with drones. 
+		
+		A Raspberry Pi was used as the camera to collect images and I used Tensorflow to identify parked cars. Market research on existing solutions revealed that most solutions cost over $100 per parking space. My solution is over 100 times cheaper for 50 or more parking spaces with much lower installation costs. I took my project to the Regional Pennsylvania Junior Academy of Science, got first award, and then went on to win first award at the state wide competition as well. I also presented at PRSEF, the Pittsburgh Regional Science & Engineering Fair, and won a sponsor award. I really enjoyed teaching myself how to set up tensorflow for use in a real world scenario as well as learning how to set up and use a Raspberry Pi.`
 	},
 	{
 		eventName: 'CSCI101/CSCI261',
 		year: 2019,
 		title: '3D Space Game With Procedural Planets',
+		tags: ['Graphics'],
 		languages: ['Python'],
 		summary: 'Fly around a line based 3D environment with stars and procedurally generated planets!',
 		description: `Using the 3D engine I built in 2017, I created a space flight simulator demo in Python. For this project I also built a procedural planet generator that creates 3D planets with a specified level of detail. I use an algorithm that maps a 2D plane to points on a sphere and then use random noise to plot points on the planet's surface and to generate peaks and valleys. I also created a simple file type to store the 3D data for easy import and export.`
@@ -151,6 +172,7 @@ export const projects = [
 		eventName: 'CMU 15-112 Fundamentals of Programming & Computer Science',
 		year: 2017,
 		title: '3D Arcade Game',
+		tags: ['Graphics'],
 		languages: ['Python'],
 		awards: [
 			{
@@ -166,9 +188,11 @@ export const projects = [
 export function getProjectsByLanguage(language: string) {
 	return projects.filter(p => (p.languages.includes(language)))
 }
-
-export function getProjectsByLanguages(languages: string[]) {
+export function getProjectsByTag(category: string) {
+	return projects.filter(p => (p.tags.includes(category) || category == "All"))
+}
+export function getProjectsByLanguages(projects: Project[], languages: string[]) {
 	return projects.filter(
-		proj => proj.languages.some(l => languages.includes(l))
+		(proj: Project) => proj.languages.some(l => languages.includes(l))
 	)
 }

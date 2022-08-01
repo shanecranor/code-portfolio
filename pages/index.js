@@ -8,15 +8,15 @@ import Section from '../components/Section/Section';
 import FeaturedProject from '../components/FeaturedProject/FeaturedProject';
 import Link from 'next/dist/client/link';
 import ModalWindow from '../components/ModalWindow/ModalWindow';
-import { projects, getProjectsByLanguages } from '../constants/projects'
-import { categories, getLangsByCategory } from '../constants/languages.tsx'
+import { projects, getProjectsByLanguages, getProjectsByTag } from '../constants/projects'
+import { categories, getLangsByCategory } from '../constants/languages.ts'
 import { useState } from 'react';
 import Router, { useRouter } from "next/router";
 export default function Home() {
     const { query } = useRouter();
     const project = query.project;
     const category = query.category || "All";
-    const selectedProjects = getProjectsByLanguages(getLangsByCategory(category).map(l => l.language))
+    const selectedProjects = getProjectsByTag(category)
     const projectProps = selectedProjects[project]
     return (<>
         <Head>
@@ -50,10 +50,12 @@ export default function Home() {
                             description="Overlay that displays cached Spotify data from a Cloudlare worker"
                         /></a>
                     </Link>
+                    <Link href="./posts/synth"><a style={{ all: "unset" }}>
                     <FeaturedProject
                         title="Math Synth Experiment"
                         description="Create a wall of sound by writing equations"
-                    />
+                    /></a>
+                     </Link>
                     <FeaturedProject
                         title="Bubblz.Space"
                         description="A peer to peer video communication web app with a twist"

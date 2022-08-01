@@ -1,5 +1,5 @@
-import { categories, getLangsByCategory } from '../../constants/languages.tsx'
-import { getProjectsByLanguages } from '../../constants/projects.tsx'
+import { categories, getLangsByCategory } from '../../constants/languages.ts'
+import { getProjectsByLanguages } from '../../constants/projects.ts'
 import React, { useState } from "react"
 import { projects } from '../../constants/projects';
 export default function ModalWindow({ selectedProject, setProject, maxProject }) {
@@ -34,7 +34,11 @@ export default function ModalWindow({ selectedProject, setProject, maxProject })
 						<p>{description}</p>
 					</section>
 				</div>
-
+				{links &&
+				<section className='links'>
+					{links.map(l => (<a href={l.link}>{l.description}</a>))}
+				</section>	
+				}
 			</div>
 			{
 

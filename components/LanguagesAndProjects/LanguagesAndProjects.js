@@ -1,5 +1,5 @@
-import { categories, getLangsByCategory } from '../../constants/languages.tsx'
-import { getProjectsByLanguages, projects } from '../../constants/projects.tsx'
+import { categories, getLangsByCategory } from '../../constants/languages.ts'
+import { getProjectsByLanguage, getProjectsByTag, projects } from '../../constants/projects.ts'
 import React from "react"
 import Project from '../Project/Project.js'
 import Router, { useRouter } from "next/router";
@@ -13,7 +13,7 @@ export default function LanguagesAndProjects() {
 			{ shallow: true }
 		))
 	]
-	const selectedProjects = getProjectsByLanguages(getLangsByCategory(selected).map(l => l.language))
+	const selectedProjects = getProjectsByTag(selected)
 	return (
 		<section className='all-projects'>
 			<section className='language-section'>

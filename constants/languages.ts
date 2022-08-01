@@ -24,7 +24,7 @@ export const languages = [
 		fluency: 70
 	},
 	{
-		language: 'React (JSX or Hyperscript)',
+		language: 'React',
 		img: 'languageIcons/React.svg',
 		categories: ['Web Stack'],
 		fluency: 70
